@@ -38,7 +38,7 @@ This application implements advanced UI techniques and meets specific layout req
 
 Clone or open the project folder:
 ```bash
-https://github.com/BroBYW/-Van-Gogh-Gallery-App-.NET-MAUI-.git
+git clone https://github.com/BroBYW/-Van-Gogh-Gallery-App-.NET-MAUI-.git
 ```
 
 ```bash
