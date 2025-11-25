@@ -36,7 +36,7 @@ Status: ✅ Requirement Fulfilled.
 
 Staggered Layout: Implemented a Pinterest-style "Masonry" layout where images of different heights (Portrait vs. Landscape) fit perfectly without gaps.
 
-Structure: utilized a 2-Column Grid with independent VerticalStackLayouts inside a ScrollView.
+Structure: Utilized a 2-Column Grid with independent VerticalStackLayouts inside a ScrollView.
 
 Status: ✅ Requirement Fulfilled.
 
@@ -57,20 +57,24 @@ Clone the repository:
 git clone [https://github.com/YOUR_USERNAME/VanGogh-Gallery-MAUI.git](https://github.com/YOUR_USERNAME/VanGogh-Gallery-MAUI.git)
 
 
-Open in Visual Studio 2022.
+Open in Visual Studio:
 
-Restore Nuget Packages:
-The project uses standard MAUI libraries.
+Open VanGogh-Gallery-MAUI.sln in Visual Studio 2022.
 
-Run:
+Restore Packages:
+
+The project uses standard MAUI libraries, so packages should restore automatically.
+
+Run the App:
+
 Select your target (Android Emulator or Windows Machine) and press F5.
 
 📂 Project Structure
 
-MainPage.xaml - Contains the entire UI layout (Floating Profile, Header, Masonry Grid).
+MainPage.xaml: Contains the entire UI layout (Floating Profile, Header, Masonry Grid).
 
-ViewModels/ProfileViewModel.cs - Handles data binding, the artwork collection, and the "Read More" logic.
+ViewModels/ProfileViewModel.cs: Handles data binding, the artwork collection, and the "Read More" logic.
 
-Resources/Images - Contains high-quality assets (Portrait and Landscape paintings).
+Resources/Images: Contains high-quality assets (Portrait and Landscape paintings).
 
 Developed for .NET MAUI Progress Test
