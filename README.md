@@ -1,85 +1,71 @@
-# Progress_Test (.NET MAUI)
+🎨 Van Gogh Gallery App (.NET MAUI)
 
-A cross‑platform .NET MAUI app targeting Android, iOS, MacCatalyst, and Windows (net9.0). The main screen showcases Vincent van Gogh’s profile with an expandable biography and a simple masonry‑style gallery of artworks.
+A cross-platform mobile application developed with .NET 9.0 MAUI that showcases a responsive, interactive profile and art gallery for Vincent van Gogh.
 
-## Overview
+✨ Features
 
-- Built with .NET 9 and the MAUI single‑project model
-- Targets: `net9.0-android`, `net9.0-ios`, `net9.0-maccatalyst`, `net9.0-windows10.0.19041.0`
-- UI: expandable “Read More/Read Less” biography, two‑column artwork grid
-- Data: seeded in a view model and bound via `BindableLayout`
+This application implements advanced UI techniques and meets specific layout requirements:
 
-## Prerequisites
+1. 👤 Floating Profile Interface
+   - Rounded Profile Picture: Implemented a perfect circle profile image using Border stroke shaping.
+   - Floating Effect: The profile picture sits on the boundary of the background and the content card using Grid overlapping and negative margins.
+   - Status: ✅ Requirement Fulfilled.
 
-- Windows 10/11 with Visual Studio 2022 (Community or higher) and the **.NET MAUI** workload
-- .NET SDK 9.0 (`dotnet --version` should show 9.x)
-- Android SDK and an emulator/device for Android builds
-- For iOS/MacCatalyst: a Mac with Xcode and MAUI workloads (for build/run)
-- Install MAUI workload if missing:
+2. 📖 Interactive Biography
+   - Expandable Text: Features a "Read More" / "Read Less" toggle.
+   - Tail Truncation: Automatically truncates text with ellipses (...) when collapsed and wraps fully when expanded.
+   - Implementation: Custom MVVM logic (boolean triggers) without external dependencies.
+   - Status: ✅ Requirement Fulfilled.
+
+3. 📊 Responsive Stats Grid
+   - Equal Width Layout: Uses a Grid with `ColumnDefinitions="*,*,*,*"` to ensure the four statistic columns (Record, Average, General, Items) share equal width on any screen size.
+   - No Hardcoded Margins: Spacing is handled dynamically by the Grid structure.
+   - Status: ✅ Requirement Fulfilled.
+
+4. 🖼️ Masonry Art Gallery
+   - Staggered Layout: Implemented a Pinterest-style "Masonry" layout where images of different heights (Portrait vs. Landscape) fit perfectly without gaps.
+   - Structure: Utilized a 2-Column Grid with independent `VerticalStackLayout`s inside a `ScrollView`.
+   - Status: ✅ Requirement Fulfilled.
+
+🛠️ Tech Stack
+
+- Framework: .NET 9.0 MAUI
+- Language: C#
+- Pattern: MVVM (Model-View-ViewModel)
+- UI: XAML (hand-coded grids and layouts)
+
+🚀 How to Run
+
+Clone or open the project folder:
 
 ```bash
-dotnet workload install maui
+cd "d:/Mobile Development/Progress_Test/Progress_Test"
 ```
 
-## Getting Started
+Using Visual Studio 2022:
+- Open the folder or `Progress_Test.csproj`, restore dependencies, select a target (Android Emulator or Windows Machine), and press `F5`.
+
+Using .NET CLI:
 
 ```bash
-# Clone the repository
-# (adjust path as needed)
-cd "d:/Mobile Development/Progress_Test/Progress_Test"
-
 # Restore and build
 dotnet restore
 dotnet build
-```
 
-## Run
-
-- Windows:
-
-```bash
+# Run on Windows
 dotnet run -f net9.0-windows10.0.19041.0
-```
 
-- Android (emulator or connected device):
-
-```bash
+# Run on Android (emulator or connected device)
 dotnet build -t:Run -f net9.0-android
 ```
 
-- iOS / MacCatalyst (on macOS):
+📂 Project Structure
 
-```bash
-# On a Mac with Xcode and MAUI workloads
-dotnet build -t:Run -f net9.0-ios
-# or
-dotnet build -t:Run -f net9.0-maccatalyst
-```
+- `MainPage.xaml`: Contains the entire UI layout (Floating Profile, header, masonry grid).
+- `MainPage.xaml.cs`: Handles the "Read More" toggle via tap (`MainPage.xaml.cs:12`).
+- `ViewModels/ProfileViewModel.cs`: Data binding, artwork collections, and "Read More" logic (`ViewModels/ProfileViewModel.cs:10`, `ViewModels/ProfileViewModel.cs:11`, `ViewModels/ProfileViewModel.cs:17`).
+- `Models/Artwork.cs`: Artwork model (`Models/Artwork.cs:1`).
+- `Resources/Images`: High-quality assets (portrait and landscape paintings).
+- `Progress_Test.csproj`: Target frameworks and MAUI assets (`Progress_Test.csproj:4`, `Progress_Test.csproj:51`).
 
-## Project Structure
-
-- `MainPage.xaml` — Defines the main UI with profile header and artworks grid
-- `MainPage.xaml.cs` — Handles the “Read More” toggle via tap (`MainPage.xaml.cs:12`)
-- `ViewModels/ProfileViewModel.cs` — Supplies UI data and expansion state
-  - `Biography` and `IsBioExpanded` (`ViewModels/ProfileViewModel.cs:13`, `ViewModels/ProfileViewModel.cs:17`)
-  - Two artwork collections for the masonry effect (`ViewModels/ProfileViewModel.cs:10`, `ViewModels/ProfileViewModel.cs:11`)
-- `Models/Artwork.cs` — Artwork model (`Models/Artwork.cs:1`)
-- `Resources/Images/*` — Image assets
-- `Progress_Test.csproj` — Target frameworks and MAUI assets (`Progress_Test.csproj:4`, `Progress_Test.csproj:51`)
-
-## Notable UI Bindings
-
-- Biography label binds truncation/max lines to expansion state (`MainPage.xaml:32`–`MainPage.xaml:33`)
-- “Read More” label toggles expansion via tap handler (`MainPage.xaml.cs:12`–`MainPage.xaml.cs:18`)
-- Artwork grids use `BindableLayout.ItemsSource` for two columns (`MainPage.xaml:60`, `MainPage.xaml:74`)
-
-## Troubleshooting
-
-- Missing workloads: run `dotnet workload list` and install MAUI if absent
-- Android build errors: ensure Android SDK/emulator; update VS + workloads
-- Images not showing: verify assets exist under `Resources/Images` and are included in the project (`Progress_Test.csproj:51`–`Progress_Test.csproj:54`)
-- Windows run issues: confirm Windows target `net9.0-windows10.0.19041.0` and supported platform versions (`Progress_Test.csproj:39`–`Progress_Test.csproj:40`)
-
-## License
-
-This project’s licensing is not specified. Add a license if needed.
+Developed for .NET MAUI Progress Test
