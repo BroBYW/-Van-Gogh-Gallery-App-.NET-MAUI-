@@ -37,6 +37,9 @@ This application implements advanced UI techniques and meets specific layout req
 🚀 How to Run
 
 Clone or open the project folder:
+```bash
+https://github.com/BroBYW/-Van-Gogh-Gallery-App-.NET-MAUI-.git
+```
 
 ```bash
 cd "d:/Mobile Development/Progress_Test/Progress_Test"
