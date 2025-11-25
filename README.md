@@ -2,6 +2,7 @@
 
 A cross-platform mobile application developed with .NET 9.0 MAUI that showcases a responsive, interactive profile and art gallery for Vincent van Gogh.
 
+
 ✨ Features
 
 This application implements advanced UI techniques and meets specific layout requirements:
@@ -50,6 +51,7 @@ Pattern: MVVM (Model-View-ViewModel)
 
 UI: XAML (Hand-coded grids and layouts)
 
+
 🚀 How to Run
 
 Clone the repository:
@@ -68,6 +70,7 @@ The project uses standard MAUI libraries, so packages should restore automatical
 Run the App:
 
 Select your target (Android Emulator or Windows Machine) and press F5.
+
 
 📂 Project Structure
 
