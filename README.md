@@ -1,49 +1,80 @@
-🎨 Van Gogh Gallery App ( .NET MAUI )
+🎨 Van Gogh Gallery App (.NET MAUI)
 
-A beautiful cross-platform mobile application built with .NET 9.0 MAUI, showcasing an interactive profile and art gallery inspired by the timeless works of Vincent van Gogh.
+A cross-platform mobile application developed with .NET 9.0 MAUI that showcases a responsive, interactive profile and art gallery for Vincent van Gogh.
 
 ✨ Features
+
+This application implements advanced UI techniques and meets specific layout requirements:
+
 1. 👤 Floating Profile Interface
 
-Perfect Circular Profile Image using Border stroke shaping
+Rounded Profile Picture: Implemented a perfect circle profile image using Border stroke shaping.
 
-Floating Layout Effect achieved using Grid layering + negative margins
+Floating Effect: The profile picture sits on the boundary of the background and the content card using Grid overlapping and negative margins.
 
-Smooth visual separation from background and content card
-✔️ Requirement Fulfilled
+Status: ✅ Requirement Fulfilled.
 
 2. 📖 Interactive Biography
 
-Expandable text with Read More / Read Less toggle
+Expandable Text: Features a "Read More" / "Read Less" toggle.
 
-Tail truncation (ellipses “…”) when collapsed
+Tail Truncation: Automatically truncates text with ellipses (...) when collapsed and wraps fully when expanded.
 
-Full content reveal when expanded
+Implementation: Custom MVVM logic (boolean triggers) without external dependencies.
 
-Built using clean MVVM logic without external plugins
-✔️ Requirement Fulfilled
+Status: ✅ Requirement Fulfilled.
 
 3. 📊 Responsive Stats Grid
 
-4-column equal-width layout using Grid with ColumnDefinitions="*,*,*,*"
+Equal Width Layout: Uses a Grid with ColumnDefinitions="*,*,*,*" to ensure the four statistic columns (Record, Average, General, Items) share equal width on any screen size.
 
-Auto-responsive on all screen sizes
+No Hardcoded Margins: Spacing is handled dynamically by the Grid structure.
 
-Zero hardcoded margins — spacing handled dynamically
-✔️ Requirement Fulfilled
+Status: ✅ Requirement Fulfilled.
 
 4. 🖼️ Masonry Art Gallery
 
-Pinterest-like Masonry layout with staggered heights
+Staggered Layout: Implemented a Pinterest-style "Masonry" layout where images of different heights (Portrait vs. Landscape) fit perfectly without gaps.
 
-2-column parent grid, each with its own VerticalStackLayout
+Structure: Utilized a 2-Column Grid with independent VerticalStackLayouts inside a ScrollView.
 
-Efficient handling of portrait + landscape images
-✔️ Requirement Fulfilled
+Status: ✅ Requirement Fulfilled.
 
 🛠️ Tech Stack
-Component	Details
-Framework	.NET 9.0 MAUI
-Language	C#
-Pattern	MVVM
-UI	XAML (Custom layout, hand-written grids and structure)
+
+Framework: .NET 9.0 MAUI
+
+Language: C#
+
+Pattern: MVVM (Model-View-ViewModel)
+
+UI: XAML (Hand-coded grids and layouts)
+
+🚀 How to Run
+
+Clone the repository:
+
+git clone [https://github.com/YOUR_USERNAME/VanGogh-Gallery-MAUI.git](https://github.com/YOUR_USERNAME/VanGogh-Gallery-MAUI.git)
+
+
+Open in Visual Studio:
+
+Open VanGogh-Gallery-MAUI.sln in Visual Studio 2022.
+
+Restore Packages:
+
+The project uses standard MAUI libraries, so packages should restore automatically.
+
+Run the App:
+
+Select your target (Android Emulator or Windows Machine) and press F5.
+
+📂 Project Structure
+
+MainPage.xaml: Contains the entire UI layout (Floating Profile, Header, Masonry Grid).
+
+ViewModels/ProfileViewModel.cs: Handles data binding, the artwork collection, and the "Read More" logic.
+
+Resources/Images: Contains high-quality assets (Portrait and Landscape paintings).
+
+Developed for .NET MAUI Progress Test
