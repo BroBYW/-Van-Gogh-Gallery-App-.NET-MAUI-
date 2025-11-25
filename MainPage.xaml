@@ -1,0 +1,103 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Progress_Test.ViewModels"
+             x:Class="Progress_Test.MainPage"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#000000">
+    <ContentPage.BindingContext>
+        <vm:ProfileViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="0" Padding="0,0,0,20">
+
+            <Grid Margin="15,40,15,0">
+
+                <Border BackgroundColor="#1E1E1E" 
+                        StrokeThickness="0"
+                        Margin="0,55,0,0">
+
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="25,25,0,0" />
+                    </Border.StrokeShape>
+
+                    <VerticalStackLayout Spacing="10" Padding="15,65,15,20">
+
+                        <VerticalStackLayout Spacing="5">
+                            <Label Text="Vincent van Gogh" TextColor="White" FontSize="28" FontAttributes="Bold" FontFamily="Serif" HorizontalOptions="Center" />
+                            <Label Text="Dutch, 1853 - 1890" TextColor="#888888" FontSize="14" HorizontalOptions="Center" />
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Spacing="5">
+                            <Label Text="{Binding Biography}" TextColor="#CCCCCC" FontSize="15" HorizontalTextAlignment="Center" LineHeight="1.2"
+                                   MaxLines="{Binding BioMaxLines}" LineBreakMode="{Binding BioLineBreakMode}"/>
+                            <Label Text="{Binding ReadMoreText}" TextColor="#F2A93B" HorizontalOptions="Center" FontAttributes="Bold" Margin="0,5,0,0">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnReadMoreTapped" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </VerticalStackLayout>
+
+                        <BoxView HeightRequest="1" Color="#333333" Margin="0,10" />
+
+                        <Grid ColumnDefinitions="*,*,*,*" RowDefinitions="Auto, Auto" ColumnSpacing="0">
+                            <Label Text="$7.5m" TextColor="White" FontAttributes="Bold" FontSize="16" Grid.Column="0" HorizontalOptions="Center"/>
+                            <Label Text="$3.5m" TextColor="White" FontAttributes="Bold" FontSize="16" Grid.Column="1" HorizontalOptions="Center"/>
+                            <Label Text="+598%" TextColor="White" FontAttributes="Bold" FontSize="16" Grid.Column="2" HorizontalOptions="Center"/>
+                            <Label Text="6" TextColor="White" FontAttributes="Bold" FontSize="16" Grid.Column="3" HorizontalOptions="Center"/>
+
+                            <Label Text="Record" TextColor="#888888" FontSize="12" Grid.Row="1" Grid.Column="0" HorizontalOptions="Center"/>
+                            <Label Text="Average" TextColor="#888888" FontSize="12" Grid.Row="1" Grid.Column="1" HorizontalOptions="Center"/>
+                            <Label Text="General" TextColor="#888888" FontSize="12" Grid.Row="1" Grid.Column="2" HorizontalOptions="Center"/>
+                            <Label Text="Items" TextColor="#888888" FontSize="12" Grid.Row="1" Grid.Column="3" HorizontalOptions="Center"/>
+                        </Grid>
+
+                        <BoxView HeightRequest="1" Color="#333333" Margin="0,10" />
+
+                        <Label Text="Other Van Gogh Works" TextColor="White" FontSize="18" FontAttributes="Bold" Margin="0,0,0,5"/>
+
+                        <Grid ColumnDefinitions="*,*" ColumnSpacing="15">
+                            <VerticalStackLayout Grid.Column="0" Spacing="15" BindableLayout.ItemsSource="{Binding LeftColumnArtworks}">
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border StrokeThickness="0" BackgroundColor="#2D2D2D" StrokeShape="RoundRectangle 15">
+                                            <Grid RowDefinitions="Auto, Auto, Auto" Padding="0,0,0,12">
+                                                <Image Grid.Row="0" Source="{Binding ImageUrl}" Aspect="AspectFill" HeightRequest="{Binding ImageHeight}" HorizontalOptions="Fill"/>
+                                                <Label Grid.Row="1" Text="{Binding Title}" TextColor="White" FontSize="14" FontAttributes="Bold" Margin="12,12,12,0" />
+                                                <Label Grid.Row="2" Text="{Binding Price}" TextColor="#888888" FontSize="12" Margin="12,4,12,0" />
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                            </VerticalStackLayout>
+
+                            <VerticalStackLayout Grid.Column="1" Spacing="15" BindableLayout.ItemsSource="{Binding RightColumnArtworks}">
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border StrokeThickness="0" BackgroundColor="#2D2D2D" StrokeShape="RoundRectangle 15">
+                                            <Grid RowDefinitions="Auto, Auto, Auto" Padding="0,0,0,12">
+                                                <Image Grid.Row="0" Source="{Binding ImageUrl}" Aspect="AspectFill" HeightRequest="{Binding ImageHeight}" HorizontalOptions="Fill"/>
+                                                <Label Grid.Row="1" Text="{Binding Title}" TextColor="White" FontSize="14" FontAttributes="Bold" Margin="12,12,12,0" />
+                                                <Label Grid.Row="2" Text="{Binding Price}" TextColor="#888888" FontSize="12" Margin="12,4,12,0" />
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                            </VerticalStackLayout>
+                        </Grid>
+
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border Stroke="#F2A93B" StrokeThickness="3" HeightRequest="110" WidthRequest="110" 
+                        HorizontalOptions="Center" VerticalOptions="Start" BackgroundColor="#1E1E1E">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="55" />
+                    </Border.StrokeShape>
+                    <Image Source="vincent.jpg" Aspect="AspectFill"/>
+                </Border>
+
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
